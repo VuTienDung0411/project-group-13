@@ -49,6 +49,16 @@ public final class ShopdeeSystem {
         return null;
     }
 
+    public List<ItemStock> getAllItems() {
+        
+        return new ArrayList<>();
+    }
+
+    public List<Shop> getAllShops() {
+        
+        return new ArrayList<>();
+    }
+
     public void shopAcceptOrder(List<Integer> orderIds) {
 
     }
