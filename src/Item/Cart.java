@@ -1,36 +1,70 @@
 package Item;
 
-import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
 
-public class Cart {
-    private final HashSet<CartItem> items;
+public class Item {
+    private final int id;
+    private String name;
+    private String description;
+    private List<ItemCategory> categories;
 
-    public Cart() {
-        items = new HashSet<>();
+    private static int currentId = 1;
+
+    public Item(String name, String description, List<ItemCategory> categories) {
+        this.id = currentId++;
+        this.name = name;
+        this.description = description;
+        this.categories = categories;
     }
 
-    public void addToCart(CartItem cartItem) {
-
+    public int getId() {
+        return id;
     }
 
-    public void addToCart(int cartId, int quantity) {
-
+    public String getName() {
+        return name;
     }
 
-    public void removeFromCart(int cartId, int quantity) {
-
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void removeFromCart(int cartId) {
+    public String getDescription() {
+        return description;
     }
 
-    public double getTotalPrice() {
-        return 0;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public HashSet<CartItem> getItems() {
-        return items;
+    public List<ItemCategory> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<ItemCategory> categories) {
+        this.categories = categories;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Item item)) return false;
+        return id == item.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", categories=" + categories +
+                '}';
     }
 }
-
-
